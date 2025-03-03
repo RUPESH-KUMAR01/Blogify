@@ -7,6 +7,7 @@
   "dependencies": {
     "@prisma/client": "^6.3.1",
     "@prisma/extension-accelerate": "^1.2.1",
+    "blogify-common": "^1.0.2",
     "hono": "^4.6.20"
   },
   "devDependencies": {
