@@ -22,7 +22,6 @@ userRouter.post("/signup",async (c)=>{
       datasourceUrl: c.env.DATABASE_URL,
     }).$extends(withAccelerate())
     try{
-      console.log(body)
       const user=await prisma.user.create({
         data:{
           email:body.email,
