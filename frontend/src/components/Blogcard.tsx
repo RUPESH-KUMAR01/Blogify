@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { getOrdinalSuffix } from "./Fullblog";
 
 interface BlogProps {
     authorName: string;
@@ -9,13 +10,18 @@ interface BlogProps {
 }
 
 export const Blogcard = ({ authorName, title, content, publishedDate, id }: BlogProps) => {
+    const date = new Date(publishedDate);
+    const day = date.getDate();
+    const month = date.toLocaleString("en-US", { month: "long" });
+    const year = date.getFullYear();
+    const formattedDate = `${day}${getOrdinalSuffix(day)} ${month}, ${year}`;
     return <Link to={`/blog/${id}`}>
         <div className="p-4 border border-black rounded-lg shadow-lg bg-white mb-4 cursor-pointer">
             <div className="flex items-center text-black">
                 <Avatar name={authorName} size="sm" />
                 <div className="pl-3">
                     <span className="font-medium">{authorName}</span>
-                    <div className="text-xs text-gray-600">{publishedDate}</div>
+                    <div className="text-xs text-gray-600">{formattedDate}</div>
                 </div>
             </div>
 
